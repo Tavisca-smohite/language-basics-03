@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
-namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
+namespace Tavisca.Bootcamp.LanguageBasics.Exercise3
 {
     public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Test(
                 new[] { 3, 4 }, 
@@ -30,18 +31,12 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 
         private static void Test(int[] protein, int[] carbs, int[] fat, string[] dietPlans, int[] expected)
         {
-            var result = SelectMeals(protein, carbs, fat, dietPlans).SequenceEqual(expected) ? "PASS" : "FAIL";
+            var result = MealSelector.SelectMeals(protein,carbs,fat, dietPlans).SequenceEqual(expected) ? "PASS" : "FAIL";
             Console.WriteLine($"Proteins = [{string.Join(", ", protein)}]");
             Console.WriteLine($"Carbs = [{string.Join(", ", carbs)}]");
             Console.WriteLine($"Fats = [{string.Join(", ", fat)}]");
             Console.WriteLine($"Diet plan = [{string.Join(", ", dietPlans)}]");
             Console.WriteLine(result);
-        }
-
-        public static int[] SelectMeals(int[] protein, int[] carbs, int[] fat, string[] dietPlans)
-        {
-            // Add your code here.
-            throw new NotImplementedException();
         }
     }
 }
