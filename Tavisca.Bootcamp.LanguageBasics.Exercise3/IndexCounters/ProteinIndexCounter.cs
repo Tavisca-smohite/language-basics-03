@@ -8,32 +8,25 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise3
 
         Nutrition[] INutritionSelector.GetNutritions(Nutrition[] nutritions, string parameter)
         {
-            
-                var result = new List<Nutrition>();
-                if (parameter.Equals("P"))
-                {
-                    var maxProtein = nutritions.Select(x => x.Protein).ToArray().Max();
-                    for (var i = 0; i < nutritions.Length; i++)
-                    {
-                        if (nutritions[i].Protein == maxProtein)
-                        result.Add(nutritions[i]);
-                    }
 
-                }
-                else 
-                {
-                    var minProtein = nutritions.Select(x => x.Protein).ToArray().Min();
-                    for (var i = 0; i < nutritions.Length; i++)
-                    {
-                        if (nutritions[i].Protein == minProtein)
-                        result.Add(nutritions[i]);
-                }
-                }
-                return result.ToArray();
+            var result = new List<Nutrition>();
+            if (parameter.Equals("P"))
+            {
+                var maxProtein = nutritions.Select(x => x.Protein).ToArray().Max();
+                var data = nutritions.Where(nutrition => nutrition.Calories == maxProtein);
+                result.AddRange(data);
+            }
+            else
+            {
+                var minProtein = nutritions.Select(x => x.Protein).ToArray().Min();
+                var data = nutritions.Where(nutrition => nutrition.Calories == minProtein);
+                result.AddRange(data);
+            }
+            return result.ToArray();
 
 
-            
+
         }
-        
+
     }
 }
