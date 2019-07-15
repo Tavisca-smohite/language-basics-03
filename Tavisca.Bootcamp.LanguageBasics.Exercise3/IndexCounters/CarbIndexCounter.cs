@@ -14,16 +14,13 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise3
             {
                 
                 var maxCarb = nutritions.Select(x => x.Carb).ToArray().Max();
-                var data=nutritions.Where(nutrition => nutrition.Carb == maxCarb);
-                result.AddRange(data);
+                return nutritions.Where(nutrition => nutrition.Carb == maxCarb).ToArray();
             }
             else
             {
                 var minCarbs= nutritions.Select(x => x.Carb).ToArray().Min();
-                var data = nutritions.Where(nutrition => nutrition.Carb == minCarbs);
-                result.AddRange(data);
+              return nutritions.Where(nutrition => nutrition.Carb == minCarbs).ToArray();
             }
-            return result.ToArray();
 
 
 

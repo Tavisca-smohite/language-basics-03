@@ -13,21 +13,16 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise3
             if (parameter.Equals("F"))
             {
                 var maxFats = nutritions.Select(x => x.Fat).ToArray().Max();
-                var data = nutritions.Where(nutrition => nutrition.Calories == maxFats);
-
-                result.AddRange(data);
+                return nutritions.Where(nutrition => nutrition.Fat == maxFats).ToArray();
+                
             }
             else
             {
                 var minFats = nutritions.Select(x => x.Fat).ToArray().Min();
-                var data = nutritions.Where(nutrition => nutrition.Calories == minFats);
-                result.AddRange(data);
+                return nutritions.Where(nutrition => nutrition.Fat == minFats).ToArray();
             
             }
-            return result.ToArray();
-
-
-
+            
         }
 
     }
